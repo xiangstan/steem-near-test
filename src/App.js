@@ -2,20 +2,25 @@ import "bulma";
 import { useState } from "react";
 import './App.css';
 import Header from "components/Header";
-import Modal from "components/LoginForm";
+import Login from "components/LoginForm";
 import Toast from "components/Toast";
 
 function App() {
-  const  [modal, setModal] = useState(false);
+  const [loginForm, setLogin] = useState(false);
+  const [loginTitle, setLoginTtl] = useState("");
 
-  function displayModal() {
-    setModal(!modal);
+  function displayLoginForm() {
+    setLogin(!loginForm);
+  }
+
+  function displayLoginTitle(data) {
+    setLoginTtl(data);
   }
 
   return (
     <div className="App">
-      <Header action={displayModal} />
-      <Modal action={displayModal} show={modal} />
+      <Header action={displayLoginForm} loginTitle={displayLoginTitle} />
+      <Login action={displayLoginForm} show={loginForm} title={loginTitle} />
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.

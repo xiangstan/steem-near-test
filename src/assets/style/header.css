@@ -1,0 +1,9 @@
+.login-box {
+  display: none;
+  position: fixed;
+  right: 2rem;
+  top: 5rem;
+}
+.login-box.is-active {
+  display: block;
+}
